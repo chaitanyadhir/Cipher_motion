@@ -2,10 +2,8 @@ import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox
 import requests
 
-# Backend API URL
 API_URL = "http://127.0.0.1:8000/analyze"
 
-# Submit Code Function
 def analyze_code():
     code = code_input.get("1.0", tk.END).strip()
     if not code:
@@ -25,11 +23,9 @@ def analyze_code():
     except Exception as e:
         messagebox.showerror("Connection Error", f"Failed to connect to the backend: {e}")
 
-# Main Window
 root = tk.Tk()
 root.title("Python Code Analyzer")
 
-# Layout
 tk.Label(root, text="Enter Python Code:", font=("Arial", 12, "bold")).grid(row=0, column=0, padx=10, pady=5, sticky="w")
 code_input = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=60, height=15, font=("Courier", 10))
 code_input.grid(row=1, column=0, padx=10, pady=5)
@@ -45,5 +41,4 @@ tk.Label(root, text="Optimization Suggestions:", font=("Arial", 12, "bold")).gri
 suggestions_output = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=60, height=7, font=("Courier", 10))
 suggestions_output.grid(row=6, column=0, padx=10, pady=5)
 
-# Run Main Loop
 root.mainloop()
